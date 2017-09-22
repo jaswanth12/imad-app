@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 
 app.get("article1",function(req, res)
 {
-res.sendFile("article 1 is requested");    
+res.send("article 1 is requested");    
 });
 
 
