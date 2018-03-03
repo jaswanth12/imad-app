@@ -18,11 +18,8 @@ app.get('/freinds-details', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'friends-details.html'));
 });
 var cou=1;
-app.get('/frd', function (req, res,re1) {
+app.get('/frd', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'frd.html'));
-cou=cou+1;
-re1.send(cou.toString());
-    
 });
 
 app.get('/ui/main.js', function (req, res) {
