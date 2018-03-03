@@ -18,10 +18,10 @@ app.get('/freinds-details', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'friends-details.html'));
 });
 var cou=1;
-app.get('/frd', function (req, res) {
+app.get('/frd', function (req, res,re1) {
   res.sendFile(path.join(__dirname, 'ui', 'frd.html'));
 cou=cou+1;
-res.send(cou.toString());
+re1.send(cou.toString());
     
 });
 
