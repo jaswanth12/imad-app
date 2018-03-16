@@ -56,7 +56,7 @@ app.get('/frd', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'frd.html'));
 });
 var pool= new pool(config);
-app.get('/developer/:develope',function(req,res){
+app.get('/developed/:develope',function(req,res){
 pool.query("select * from developer where id= '"+req.params.develope+"'",function(err,result){
     
 if(err)
