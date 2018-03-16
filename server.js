@@ -10,18 +10,24 @@ var config = {
     port:'5432',
     password:process.env.DB_PASSWORD
     };
-var Template={
+function createTemplate(data){
+var main_info=data.id;
+var name_of_developer=dname;
+var date_developer=date_dev;
+
+
+var Template=
     `<html>
       <head>
           <title>
-            ${id}
+            ${main_info}
             </title>
     <body>
         <h2>
-        ${dname}
+        ${name_of_developer}
         </h2>
             <div>
-            ${date_dev}
+            ${date_develpoer}
             </div>
     </body>
 </head>
@@ -29,7 +35,7 @@ var Template={
 `;
 return Template;
     
-}
+};
 var app = express();
 app.use(morgan('combined'));
 
@@ -50,7 +56,7 @@ app.get('/frd', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'frd.html'));
 });
 var pool= new pool(config);
-app.get('/:develope',function(req,res){
+app.get('/developer/:develope',function(req,res){
 pool.query("select * from developer where id= '"+req.params.develope+"'",function(err,result){
     
 if(err)
@@ -66,7 +72,7 @@ if(err)
     else
     {
         var developerdata=result.row[0];
-        res.send(create Template(developerdata));
+        res.send(createTemplate(developerdata));
     }
 }
 });
