@@ -1,7 +1,35 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var pool=requrie('pg').pool;
 
+var config = {
+    user:'jaswanthyenduri',
+    database:'jaswanthyenduri',
+    host:'db.imad.hasura-app.io',
+    port:'5432',
+    password:process.env.DB_PASSWORD
+    };
+var Template={
+    `<html>
+      <head>
+          <title>
+            ${id}
+            </title>
+    <body>
+        <h2>
+        ${dname}
+        </h2>
+            <div>
+            ${date_dev}
+            </div>
+    </body>
+</head>
+</html>
+`;
+return Template;
+    
+}
 var app = express();
 app.use(morgan('combined'));
 
@@ -21,7 +49,29 @@ var cou=1;
 app.get('/frd', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'frd.html'));
 });
-
+var pool= new pool(config);
+app.get('/:develope',function(req,res){
+pool.query("select * from developer where id= '"+req.params.develope+"'",function(err,result){
+    
+if(err)
+    {
+        res.status(500).send(err.tostring());
+    }
+    else
+{
+    if(result.row.length===0)
+    {
+        res.status.send("data not found");
+    }
+    else
+    {
+        var developerdata=result.row[0];
+        res.send(create Template(developerdata));
+    }
+}
+});
+}
+);
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
