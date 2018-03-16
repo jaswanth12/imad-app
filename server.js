@@ -56,8 +56,8 @@ app.get('/frd', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'frd.html'));
 });
 var pool= new pool(config);
-app.get('/developed/:develope',function(req,res){
-pool.query("select * from developer where id= '"+req.params.develope+"'",function(err,result){
+app.get('/developed/:developes',function(req,res){
+pool.query("select * from developer where id= '"+req.params.developes+"'",function(err,result){
     
 if(err)
     {
@@ -89,7 +89,7 @@ res.send(counter.toString());
 
 
 
-app.get('/developer', function (req, res) {
+app.get('/dev', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-2.html'));
 });
 
