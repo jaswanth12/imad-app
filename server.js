@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var pool=requrie('pg').pool;
+var Pool=requrie('pg').pool;
 
 var config = {
     user:'jaswanthyenduri',
@@ -36,6 +36,14 @@ var Template=
 return Template;
     
 };
+
+//app.get('/test-db', function (req, res) {
+  
+//});
+
+
+
+
 
 var pool= new pool(config);
 app.get('/:developed',function(req,res){
