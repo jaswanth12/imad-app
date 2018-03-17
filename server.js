@@ -4,10 +4,10 @@ var path = require('path');
 var Pool = requrie('pg').Pool;
 
 var config = {
-    host:'http://db.imad.hasura-app.io/database.php?pgsql=localhost%3A5432&username=jaswanthyenduri&db=jaswanthyenduri&ns=public',
-    user:'jaswanthyenduri',
-    password:'db-jaswanthyenduri-40902',
-    database:'jaswanthyenduri'
+    host : 'localhost:5432',
+    user : 'jaswanthyenduri',
+    password : 'db-jaswanthyenduri-40902',
+    database : 'jaswanthyenduri'
     //port:'5432',
    
     };
