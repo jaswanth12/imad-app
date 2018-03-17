@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool=requrie('pg').Pool;
+var Pool = requrie('pg').Pool;
 
 var config = {
     user:'jaswanthyenduri',
@@ -40,13 +40,26 @@ return Template;
 //app.get('/test-db', function (req, res) {
   
 //});
-
-
-
-
-
 var pool= new Pool(config);
-app.get('/:developed',function(req,res){
+app.get('/test-db',function(req,res){
+pool.query('SELECT * FROM developer',function (err,result)
+{
+    if(err){
+    res.status(500).send(err.toString());
+            }
+            else
+            {
+                res.send(JSON.stringify(result));
+                
+            }
+    
+    
+    
+});
+
+});
+
+/*app.get('/:developed',function(req,res){
 pool.query("select * from developer where id= '"+req.params.developed+"'",function(err,result){
     
 if(err)
@@ -68,7 +81,7 @@ if(err)
 });
 }
 );
-
+*/
 
 var app = express();
 app.use(morgan('combined'));
