@@ -7,8 +7,8 @@ var config = {
     host : 'localhost:5432',
     user : 'jaswanthyenduri',
     password : 'db-jaswanthyenduri-40902',
-    database : 'jaswanthyenduri'
-    //port:'5432',
+    database : 'jaswanthyenduri',
+    port:'5432'
    
     };
 function createTemplate(data){
