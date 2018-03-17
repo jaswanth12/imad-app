@@ -8,7 +8,7 @@ var config = {
     database:'jaswanthyenduri',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:'db-jaswanthyenduri-40902'
     };
 function createTemplate(data){
 var main_info=data.id;
