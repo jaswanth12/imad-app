@@ -4,26 +4,25 @@ var path = require('path');
 var Pool = requrie('pg').Pool;
 
 var config = {
-    host :'db.imad.hasura-app.io',
     user : 'jaswanthyenduri',
     database : 'jaswanthyenduri',
-    password : 'db-jaswanthyenduri-40902',
-   
-    port:'5432'
-   
-    };
+    host :'db.imad.hasura-app.io',
+    port:'5432',
+    password : 'db-jaswanthyenduri-40902'
+      };
+var app = express();
+app.use(morgan('combined'));
 function createTemplate(data){
 var main_info=data.id;
 var name_of_developer=dname;
 var date_developer=date_dev;
-
-
-var Template=
-    `<html>
+var Template=`
+<html>
       <head>
           <title>
             ${main_info}
             </title>
+    <link href="/ui/style.css rel="stylesheet" />
     <body>
         <h2>
         ${name_of_developer}
@@ -36,12 +35,7 @@ var Template=
 </html>
 `;
 return Template;
-    
-};
-
-//app.get('/test-db', function (req, res) {
-  
-//});
+    };
 var pool= new Pool(config);
 app.get('/test-db',function(req,res){
 pool.query('SELECT * FROM developer',function (err,result)
@@ -51,13 +45,10 @@ pool.query('SELECT * FROM developer',function (err,result)
             }
             else
             {
-                res.send(JSON.stringify(result));
+                res.send(JSON.stringify(result.rows));
                 
             }
-    
-    
-    
-});
+    });
 
 });
 
@@ -85,8 +76,6 @@ if(err)
 );
 */
 
-var app = express();
-app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
