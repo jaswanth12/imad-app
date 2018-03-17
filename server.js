@@ -4,11 +4,12 @@ var path = require('path');
 var Pool = requrie('pg').Pool;
 
 var config = {
-    user:'jaswanthyenduri',
-    database:'jaswanthyenduri',
     host:'db.imad.hasura-app.io',
-    port:'5432',
-    password:'db-jaswanthyenduri-40902'
+    user:'jaswanthyenduri',
+    password:'db-jaswanthyenduri-40902',
+    database:'jaswanthyenduri'
+    //port:'5432',
+   
     };
 function createTemplate(data){
 var main_info=data.id;
