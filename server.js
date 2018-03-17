@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 //var pool=requrie('pg').pool;
 
-/*var config = {
+var config = {
     user:'jaswanthyenduri',
     database:'jaswanthyenduri',
     host:'db.imad.hasura-app.io',
@@ -35,7 +35,7 @@ var Template=
 `;
 return Template;
     
-};*/
+};
 var app = express();
 app.use(morgan('combined'));
 
@@ -55,7 +55,7 @@ var cou=1;
 app.get('/frd', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'frd.html'));
 });
-/*var pool= new pool(config);
+var pool= new pool(config);
 app.get('/developed/:developes',function(req,res){
 pool.query("select * from developer where id= '"+req.params.developes+"'",function(err,result){
     
@@ -77,7 +77,7 @@ if(err)
 }
 });
 }
-);*/
+);
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
