@@ -45,7 +45,7 @@ return Template;
 
 
 
-var pool= new pool(config);
+var Pool= new pool(config);
 app.get('/:developed',function(req,res){
 pool.query("select * from developer where id= '"+req.params.developed+"'",function(err,result){
     
