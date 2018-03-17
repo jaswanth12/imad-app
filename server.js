@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = requrie('pg').Pool;
+var Pool = requrie('pg');
 
 var config = {
     user : 'jaswanthyenduri',
@@ -38,7 +38,7 @@ return Template;
     };
 var pool= new Pool(config);
 app.get('/test-db',function(req,res){
-Pool.query('SELECT * FROM developer',function (err,result)
+pool.query('SELECT * FROM developer',function (err,result)
 {
     if(err){
     res.status(500).send(err.toString());
