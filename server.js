@@ -36,7 +36,7 @@ var Template=`
 `;
 return Template;
     };
-//var pool= new Pool(config);
+var pool= new Pool(config);
 /*app.get('/test-db',function(req,res){
 pool.query('SELECT * FROM developer',function (err,result)
 {
